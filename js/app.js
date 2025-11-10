@@ -113,23 +113,19 @@ function proceedToMicrosoftForms() {
         const registrationId = generateRegistrationId();
         localStorage.setItem('registrationId', registrationId);
 
-        // Open Microsoft Forms in new tab
-        window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank');
-
         // Redirect to thanks page with information
         localStorage.setItem('materialSelection', JSON.stringify({
             selectedMaterial: materialName,
             registrationId: registrationId,
-            timestamp: new Date().toISOString()
+            timestamp: new Date().toISOString(),
+            redirectToForms: true
         }));
 
-        // Show success message and redirect
-        alert('Great choice! Microsoft Forms is opening in a new tab. Please fill out the form to complete your registration.');
-
-        // Redirect to thanks page after a short delay
-        setTimeout(() => {
-            window.location.href = 'thanks.html';
-        }, 1000);
+        // Show success message and redirect to Microsoft Forms directly
+        if (confirm('Great choice! Click OK to open Microsoft Forms and complete your registration. After submission, you will return to the confirmation page.')) {
+            // Redirect directly to Microsoft Forms (same tab)
+            window.location.href = 'https://forms.office.com/r/f3Vim0S7AC';
+        }
     } else {
         alert('Please select a material first before proceeding.');
     }
