@@ -79,13 +79,13 @@
   DEBUG = "true"
 
 # Plugin configurations
-# No plugins required - we use Microsoft Forms for form handling
-# Note: If you want a sitemap, you can optionally add:
-# [[plugins]]
-#   package = "@netlify/plugin-sitemap"
-#   [plugins.inputs]
-#     buildDir = "dist"
-#     baseUrl = "https://ecopots.netlify.app"
+[[plugins]]
+  # Netlify plugin for sitemap generation (optional)
+  package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+    buildDir = "dist"
+    baseUrl = "https://ecopots.netlify.app"
 
 # Functions directory - not needed for Microsoft Forms integration
 
