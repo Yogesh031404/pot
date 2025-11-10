@@ -412,8 +412,9 @@ section:nth-child(even) {
 
 .material-card:hover {
     border-color: var(--accent-green);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--very-light-green), var(--pale-green));
 }
 
 .material-card.selected {
