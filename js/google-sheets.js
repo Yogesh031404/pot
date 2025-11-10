@@ -3,7 +3,7 @@
 // Configuration - these should be set via environment variables in Netlify
 const CONFIG = {
     GOOGLE_SCRIPT_URL: window.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec',
-    SPREADSHEET_ID: window.SPREADSHEET_ID || 'YOUR_SPREADSHEET_ID',
+    SPREADSHEET_ID: window.SPREADSHEET_ID || 'https://docs.google.com/spreadsheets/d/1N3kwsrMPHSJo-9K7IgWbtLPwRxLZBBAL_O4y7KNHvtg/edit?gid=0#gid=0',
     SHEET_NAME: 'EcoPots_Student_Registrations',
     MAX_RETRIES: 3,
     TIMEOUT: 30000 // 30 seconds
