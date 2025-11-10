@@ -189,9 +189,11 @@ The app automatically creates and manages a Google Sheet with:
 3. Update validation arrays in `js/form-validator.js`
 4. Add material styling in CSS if needed
 
-### Changing Departments
-1. Update department dropdown options in `register.html`
-2. Update `validDepartments` array in `js/form-validator.js`
+### Changing Department Field
+The department field is now a text input field for flexibility. Students can enter any department name.
+- No predefined options needed
+- Basic validation for length (2-50 characters) and allowed characters (letters, spaces, &, -, /)
+- Examples: "Computer Science & Engineering", "CSE", "Mechanical Engineering", "Electronics & Communication"
 
 ### Modifying Form Fields
 1. Add/remove fields in `register.html`
