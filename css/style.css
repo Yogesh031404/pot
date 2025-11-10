@@ -7,18 +7,23 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-    /* Colors - Green theme with light colors */
-    --primary-green: #4CAF50;
-    --light-green: #66BB6A;
-    --dark-green: #388E3C;
-    --accent-green: #81C784;
-    --pale-green: #E8F5E9;
-    --very-light-green: #F1F8E9;
+    /* Colors - Elegant Green Theme with Sophisticated Palette */
+    --primary-green: #2E7D32;      /* Deep forest green - more professional */
+    --light-green: #43A047;        /* Medium green - vibrant but elegant */
+    --dark-green: #1B5E20;         /* Dark forest green - for emphasis */
+    --accent-green: #66BB6A;       /* Soft accent green - for highlights */
+    --pale-green: #E8F5E9;         /* Very pale green - for backgrounds */
+    --very-light-green: #F1F8E9;   /* Nearly white with green hint */
+    --sage-green: #87A96B;         /* Sage green - sophisticated alternative */
+    --emerald-green: #26A69A;      /* Emerald touch - for special elements */
+    --mint-green: #A5D6A7;         /* Mint green - for subtle accents */
 
-    /* Light background colors */
-    --light-bg: #FAFAFA;
-    --light-secondary: #F5F5F5;
-    --light-accent: #E3F2FD;
+    /* Light background colors - elegant and clean */
+    --light-bg: #FAFAFA;           /* Clean white background */
+    --light-secondary: #F8F9FA;    /* Very light gray - subtle contrast */
+    --light-accent: #F3F4F6;       /* Soft gray for accents */
+    --warm-white: #FFFEF7;         /* Warm white for comfortable reading */
+    --cream: #FFF8E1;              /* Cream color for soft backgrounds */
 
     /* Neutral colors - light variants */
     --white: #FFFFFF;
