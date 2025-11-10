@@ -457,6 +457,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Load saved form URL
     window.msFormsHandler.loadFormUrl();
+
+    // Add console helper functions for easy access to registration data
+    window.showManualEntryData = function() {
+        const html = window.msFormsHandler.generateManualEntryHTML();
+        const newWindow = window.open('', '_blank');
+        newWindow.document.write(html);
+        newWindow.document.close();
+        console.log('Manual entry data opened in new window');
+    };
+
+    window.exportRegistrationData = function() {
+        window.msFormsHandler.exportSubmissionsAsCSV();
+    };
+
+    window.viewRegistrationStats = function() {
+        const stats = window.msFormsHandler.getSubmissionStats();
+        console.log('Registration Statistics:', stats);
+        return stats;
+    };
+
+    console.log('Eco-Pots MS Forms Handler initialized. Use showManualEntryData() to view registrations for manual entry.');
 });
 
 // Export for external use
