@@ -430,7 +430,7 @@ function validateForm(form) {
     let isValid = true;
 
     inputs.forEach(input => {
-        if (!validateField(input)) {
+        if (!validateFieldApp(input)) {
             isValid = false;
         }
     });
