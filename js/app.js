@@ -545,11 +545,19 @@ function updateMicrosoftFormsNotice() {
                 </div>
                 <button
                     onclick="window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank')"
-                    style="background: var(--primary-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease; width: 100%;"
+                    style="background: var(--primary-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease; width: 100%; margin-bottom: 10px;"
                     onmouseover="this.style.background='var(--dark-green)'; this.style.transform='translateY(-2px)';"
                     onmouseout="this.style.background='var(--primary-green)'; this.style.transform='translateY(0)';"
                 >
                     📝 Complete Microsoft Forms Registration
+                </button>
+                <button
+                    onclick="markFormsCompleted()"
+                    style="background: var(--success); color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.3s ease; width: 100%;"
+                    onmouseover="this.style.background='var(--light-green)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.background='var(--success)'; this.style.transform='translateY(0)';"
+                >
+                    ✅ I've Completed the Microsoft Forms
                 </button>
                 <p style="margin-top: 15px; font-size: 14px; color: var(--text-secondary);">
                     <strong>Registration ID:</strong> ${data.registrationId}
