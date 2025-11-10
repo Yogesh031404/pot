@@ -513,6 +513,100 @@ function showMessage(message, type) {
 // Thanks Page Functions
 function initializeThanksPage() {
     loadRegistrationSummary();
+    updateMicrosoftFormsNotice();
+}
+
+function updateMicrosoftFormsNotice() {
+    const noticeElement = document.getElementById('microsoftFormsNotice');
+    const materialSelection = localStorage.getItem('materialSelection');
+
+    if (!noticeElement) return;
+
+    let content = '';
+
+    if (materialSelection) {
+        const data = JSON.parse(materialSelection);
+
+        if (data.redirectToForms && !data.formsCompleted) {
+            // User just arrived from materials page, need to complete forms
+            content = `
+                <h3 style="color: var(--dark-green); margin-bottom: 10px;">📋 Complete Your Registration</h3>
+                <p style="margin-bottom: 15px;">
+                    <strong>Great!</strong> You've selected: <span style="background: var(--primary-green); color: white; padding: 2px 8px; border-radius: 4px;">${data.selectedMaterial}</span>
+                </p>
+                <p style="margin-bottom: 15px;">
+                    Please complete your registration by filling out the Microsoft Forms. After submission, return to this page for your confirmation.
+                </p>
+                <div style="background: var(--white); padding: 15px; border-radius: 8px; margin: 15px 0; border: 2px dashed var(--accent-green);">
+                    <p style="margin: 0; text-align: center;">
+                        <strong>📝 Click the button below to open Microsoft Forms:</strong><br>
+                        <span style="color: var(--text-secondary); font-size: 14px;">After completing the form, use your browser's back button or return to this page</span>
+                    </p>
+                </div>
+                <button
+                    onclick="window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank')"
+                    style="background: var(--primary-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease; width: 100%;"
+                    onmouseover="this.style.background='var(--dark-green)'; this.style.transform='translateY(-2px)';"
+                    onmouseout="this.style.background='var(--primary-green)'; this.style.transform='translateY(0)';"
+                >
+                    📝 Complete Microsoft Forms Registration
+                </button>
+                <p style="margin-top: 15px; font-size: 14px; color: var(--text-secondary);">
+                    <strong>Registration ID:</strong> ${data.registrationId}
+                </p>
+            `;
+        } else {
+            // User has completed or is returning
+            content = `
+                <h3 style="color: var(--dark-green); margin-bottom: 10px;">✅ Registration Almost Complete!</h3>
+                <p style="margin-bottom: 15px;">
+                    <strong>Material Selected:</strong> <span style="background: var(--primary-green); color: white; padding: 2px 8px; border-radius: 4px;">${data.selectedMaterial}</span>
+                </p>
+                <div style="background: var(--success); color: white; padding: 15px; border-radius: 8px; margin: 15px 0;">
+                    <p style="margin: 0;">
+                        <strong>🎉 Thank you!</strong> Your registration journey is complete when you submit the Microsoft Forms.
+                    </p>
+                </div>
+                <button
+                    onclick="window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank')"
+                    style="background: var(--light-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease; width: 100%;"
+                    onmouseover="this.style.background='var(--primary-green)';"
+                    onmouseout="this.style.background='var(--light-green)';"
+                >
+                    📝 Access Microsoft Forms Again
+                </button>
+                <p style="margin-top: 15px; font-size: 14px; color: var(--text-secondary);">
+                    <strong>Registration ID:</strong> ${data.registrationId} | <strong>Selected on:</strong> ${formatDate(data.timestamp)}
+                </p>
+            `;
+        }
+    } else {
+        // General message for users who land directly on thanks page
+        content = `
+            <h3 style="color: var(--dark-green); margin-bottom: 10px;">🌱 Welcome to Eco-Pots!</h3>
+            <p style="margin-bottom: 15px;">
+                Join our initiative to transform waste into green classrooms!
+            </p>
+            <div style="background: var(--white); padding: 15px; border-radius: 8px; margin: 15px 0;">
+                <h4 style="color: var(--primary-green); margin-bottom: 10px;">🚀 Get Started:</h4>
+                <ol style="margin: 0; padding-left: 20px;">
+                    <li>Select your waste material</li>
+                    <li>Complete Microsoft Forms registration</li>
+                    <li>Transform waste into green spaces!</li>
+                </ol>
+            </div>
+            <button
+                onclick="window.location.href='index.html'"
+                style="background: var(--primary-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease; width: 100%;"
+                onmouseover="this.style.background='var(--dark-green)'; this.style.transform='translateY(-2px)';"
+                onmouseout="this.style.background='var(--primary-green)'; this.style.transform='translateY(0)';"
+            >
+                🏠 Start Registration
+            </button>
+        `;
+    }
+
+    noticeElement.innerHTML = content;
 }
 
 function loadRegistrationSummary() {
