@@ -261,8 +261,10 @@ section:nth-child(even) {
 }
 
 .stat-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px) scale(1.02);
     box-shadow: var(--shadow-lg);
+    background: linear-gradient(135deg, var(--warm-white), var(--light-accent));
+    border: 1px solid var(--accent-green);
 }
 
 .stat-number {
