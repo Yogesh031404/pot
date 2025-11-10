@@ -114,20 +114,16 @@ class MSFormsHandler {
     // Direct submission to Microsoft Forms
     async submitDirectly(data) {
         try {
-            // Redirect user to Microsoft Forms with pre-filled data
-            const formData = this.formatFormDataForMSForms(data);
-            const formUrlWithParams = `${this.formUrl}?${formData}`;
-
             // Store data locally for backup and thanks page
             localStorage.setItem('lastSubmission', JSON.stringify(data));
             this.storeSuccessfulSubmission(data);
 
             return {
                 success: true,
-                message: 'Registration successful! Redirecting to Microsoft Forms...',
+                message: 'Registration successful! Opening Microsoft Forms for final submission...',
                 registrationId: data.registrationId,
                 redirectToMicrosoftForms: true,
-                microsoftFormsUrl: formUrlWithParams
+                microsoftFormsUrl: this.formUrl
             };
 
         } catch (error) {
