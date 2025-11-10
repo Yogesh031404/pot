@@ -1211,6 +1211,17 @@ footer {
     }
 }
 
+@keyframes pulse-selection {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: var(--shadow-md);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 8px 25px rgba(46, 125, 50, 0.3);
+    }
+}
+
 .fade-in {
     animation: fadeIn 0.5s ease-out;
 }
