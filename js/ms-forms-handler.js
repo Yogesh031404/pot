@@ -102,13 +102,8 @@ class MSFormsHandler {
     // Submit form to Microsoft Forms
     async submitToMSForms(data) {
         try {
-            // Method 1: Direct form submission (if form allows external submissions)
-            if (this.formUrl.includes('forms.office.com')) {
-                return await this.submitDirectly(data);
-            }
-
-            // Method 2: Power Automate flow (recommended)
-            return await this.submitViaPowerAutomate(data);
+            // Use direct URL parameter submission for Microsoft Forms
+            return await this.submitDirectly(data);
 
         } catch (error) {
             console.error('MS Forms submission error:', error);
