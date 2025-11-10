@@ -217,7 +217,14 @@ class FormValidator {
     }
 
     validateDepartment(value) {
-        return validDepartments.includes(value);
+        // Check if department is at least 2 characters and contains valid characters
+        const minLength = 2;
+        const maxLength = 50;
+        const pattern = /^[a-zA-Z\s&\-\/]+$/;
+
+        return value.length >= minLength &&
+               value.length <= maxLength &&
+               pattern.test(value.trim());
     }
 
     validateYearOfStudy(value) {
