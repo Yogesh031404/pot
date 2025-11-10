@@ -7,29 +7,31 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-    /* Colors - Nature themed palette */
-    --primary-green: #2E7D32;
-    --light-green: #4CAF50;
-    --dark-green: #1B5E20;
+    /* Colors - Green theme with light colors */
+    --primary-green: #4CAF50;
+    --light-green: #66BB6A;
+    --dark-green: #388E3C;
     --accent-green: #81C784;
+    --pale-green: #E8F5E9;
+    --very-light-green: #F1F8E9;
 
-    /* Earth tones */
-    --earth-brown: #8D6E63;
-    --light-brown: #A1887F;
-    --dark-brown: #5D4037;
+    /* Light background colors */
+    --light-bg: #FAFAFA;
+    --light-secondary: #F5F5F5;
+    --light-accent: #E3F2FD;
 
-    /* Neutral colors */
+    /* Neutral colors - light variants */
     --white: #FFFFFF;
-    --light-gray: #F5F5F5;
+    --light-gray: #F8F8F8;
     --medium-gray: #E0E0E0;
     --dark-gray: #424242;
     --black: #212121;
 
-    /* Status colors */
-    --success: #4CAF50;
-    --error: #F44336;
-    --warning: #FF9800;
-    --info: #2196F3;
+    /* Status colors - softer variants */
+    --success: #66BB6A;
+    --error: #EF5350;
+    --warning: #FFA726;
+    --info: #42A5F5;
 
     /* Typography */
     --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
