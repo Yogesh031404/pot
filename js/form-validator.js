@@ -29,16 +29,7 @@ const validationPatterns = {
     }
 };
 
-// Department options validation
-const validDepartments = [
-    'CSE',
-    'ECE',
-    'EEE',
-    'Mechanical',
-    'Civil',
-    'Chemical',
-    'Others'
-];
+// Department field is now text input - no predefined options needed
 
 // Year of study validation
 const validYears = [
