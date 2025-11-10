@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Forms Setup - Eco-Pots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .setup-section {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .step {
+            border-left: 4px solid #81C784;
+            padding-left: 15px;
+            margin: 20px 0;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            font-family: monospace;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2E7D32;
+        }
+        button {
+            background: #81C784;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #4CAF50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .success {
+            color: #E8F5E8;
+            background: rgba(76, 175, 80, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .warning {
+            color: #FFF3E0;
+            background: rgba(255, 152, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #FF9800;
+        }
+        .error {
+            color: #FFEBEE;
+            background: rgba(244, 67, 54, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #F44336;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .status-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .status-card h3 {
+            margin: 0 0 10px 0;
+            color: #81C784;
+        }
+        .form-preview {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .field-mapping {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .field-mapping > div {
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌱 Microsoft Forms Setup</h1>
+        <p style="text-align: center; font-size: 1.2em; opacity: 0.9;">
+            Connect your Eco-Pots registration form to Microsoft Forms
+        </p>
+    </div>
+
+    <div class="container">
+        <h2>⚙️ Configuration</h2>
+        <div class="step">
+            <h3>Step 1: Enter Your Microsoft Forms Link</h3>
+            <p>Paste your Microsoft Forms URL below:</p>
+            <textarea id="msFormsUrl" rows="3" placeholder="https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID"></textarea>
+            <button onclick="saveMsFormsUrl()">💾 Save Microsoft Forms URL</button>
+            <button onclick="clearConfig()">🗑️ Clear Configuration</button>
+        </div>
+
+        <div id="configStatus"></div>
+    </div>
+
+    <div class="container">
+        <h2>📋 Microsoft Forms Field Mapping</h2>
+        <div class="form-preview">
+            <p>Your Microsoft Forms should have these fields (in this order):</p>
+            <div class="field-mapping">
+                <div><strong>Field 1</strong></div>
+                <div>Full Name (Text)</div>
+
+                <div><strong>Field 2</strong></div>
+                <div>Roll Number (Text)</div>
+
+                <div><strong>Field 3</strong></div>
+                <div>Email Address (Email)</div>
+
+                <div><strong>Field 4</strong></div>
+                <div>Phone Number (Text)</div>
+
+                <div><strong>Field 5</strong></div>
+                <div>Department (Text)</div>
+
+                <div><strong>Field 6</strong></div>
+                <div>Year of Study (Choice)</div>
+
+                <div><strong>Field 7</strong></div>
+                <div>Selected Material (Choice)</div>
+
+                <div><strong>Field 8</strong></div>
+                <div>Craft Description (Text)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🧪 Test Connection</h2>
+        <button onclick="testMsFormsSetup()">🔗 Test Microsoft Forms Setup</button>
+        <div id="testResults"></div>
+    </div>
+
+    <div class="container">
+        <h2>📊 Current Status</h2>
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>🔗 Forms URL</h3>
+                <div id="urlStatus">Not configured</div>
+            </div>
+            <div class="status-card">
+                <h3>🌐 Online Status</h3>
+                <div id="onlineStatus">Checking...</div>
+            </div>
+            <div class="status-card">
+                <h3>📊 Submissions</h3>
+                <div id="submissionStats">Loading...</div>
+            </div>
+            <div class="status-card">
+                <h3>💾 Local Storage</h3>
+                <div id="storageStatus">Checking...</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📚 Instructions</h2>
+        <div class="setup-section">
+            <h3>📝 Create Your Microsoft Form</h3>
+            <ol>
+                <li>Go to <a href="https://forms.office.com" target="_blank" style="color: #81C784;">Microsoft Forms</a></li>
+                <li>Click "New Form" and name it "Eco-Pots Student Registration"</li>
+                <li>Add these questions in order:</li>
+                <ul>
+                    <li><strong>Full Name</strong> (Text - Required)</li>
+                    <li><strong>Roll Number</strong> (Text - Required)</li>
+                    <li><strong>Email Address</strong> (Email - Required)</li>
+                    <li><strong>Phone Number</strong> (Text - Required)</li>
+                    <li><strong>Department</strong> (Text - Required)</li>
+                    <li><strong>Year of Study</strong> (Choice - Required)
+                        <ul>
+                            <li>1st Year</li>
+                            <li>2nd Year</li>
+                            <li>3rd Year</li>
+                            <li>4th Year</li>
+                        </ul>
+                    </li>
+                    <li><strong>Selected Material</strong> (Choice - Required)
+                        <ul>
+                            <li>Plastic Bottles</li>
+                            <li>Ropes & Strings</li>
+                            <li>Old Shoes</li>
+                            <li>Glass Jars</li>
+                            <li>Metal Cans</li>
+                            <li>Other Materials</li>
+                        </ul>
+                    </li>
+                    <li><strong>Craft Description</strong> (Text - Required)</li>
+                </ul>
+            </ol>
+        </div>
+
+        <div class="setup-section">
+            <h3>🔗 Share Your Form</h3>
+            <ol>
+                <li>Click "Share" in the top right</li>
+                <li>Select "Anyone with the link can respond"</li>
+                <li>Copy the link</li>
+                <li>Paste it in the configuration box above</li>
+                <li>Click "Save Microsoft Forms URL"</li>
+            </ol>
+        </div>
+
+        <div class="setup-section">
+            <h3>✅ Test Your Setup</h3>
+            <ol>
+                <li>Click "Test Microsoft Forms Setup" above</li>
+                <li>Go to your registration form: <a href="register.html" style="color: #81C784;">register.html</a></li>
+                <li>Fill out a test registration</li>
+                <li>Check your Microsoft Forms responses to see the submission</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container" style="text-align: center;">
+        <p style="opacity: 0.8;">
+            <a href="index.html" style="color: #81C784; text-decoration: none;">← Back to Home</a>
+        </p>
+    </div>
+
+    <script src="js/ms-forms-handler.js"></script>
+    <script>
+        // Load saved configuration on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadConfiguration();
+            updateStatus();
+
+            // Auto-refresh status every 5 seconds
+            setInterval(updateStatus, 5000);
+        });
+
+        function loadConfiguration() {
+            const savedUrl = localStorage.getItem('ecopots_ms_form_url');
+            if (savedUrl) {
+                document.getElementById('msFormsUrl').value = savedUrl;
+                if (window.msFormsHandler) {
+                    window.msFormsHandler.setFormUrl(savedUrl);
+                }
+            }
+        }
+
+        function saveMsFormsUrl() {
+            const url = document.getElementById('msFormsUrl').value.trim();
+
+            if (!url) {
+                showStatus('Please enter a Microsoft Forms URL', 'error');
+                return;
+            }
+
+            if (!url.includes('forms.office.com')) {
+                showStatus('Please enter a valid Microsoft Forms URL (should contain forms.office.com)', 'error');
+                return;
+            }
+
+            // Save to localStorage and update handler
+            localStorage.setItem('ecopots_ms_form_url', url);
+
+            if (window.msFormsHandler) {
+                window.msFormsHandler.setFormUrl(url);
+            }
+
+            showStatus('Microsoft Forms URL saved successfully!', 'success');
+            updateStatus();
+        }
+
+        function clearConfig() {
+            localStorage.removeItem('ecopots_ms_form_url');
+            document.getElementById('msFormsUrl').value = '';
+
+            if (window.msFormsHandler) {
+                window.msFormsHandler.formUrl = '';
+            }
+
+            showStatus('Configuration cleared', 'warning');
+            updateStatus();
+        }
+
+        async function testMsFormsSetup() {
+            const resultsDiv = document.getElementById('testResults');
+            resultsDiv.innerHTML = '<div class="warning">🔄 Testing Microsoft Forms setup...</div>';
+
+            try {
+                if (!window.msFormsHandler) {
+                    throw new Error('Microsoft Forms handler not initialized');
+                }
+
+                // Check if URL is configured
+                if (!window.msFormsHandler.formUrl) {
+                    throw new Error('Microsoft Forms URL not configured. Please save the URL first.');
+                }
+
+                // Check service availability
+                const result = await window.msFormsHandler.checkServiceAvailability();
+
+                if (result.available) {
+                    resultsDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Setup Successful!</strong><br>
+                            ${result.message}<br>
+                            Microsoft Forms integration is ready to use.
+                        </div>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="warning">
+                            <strong>⚠️ Setup Partial</strong><br>
+                            ${result.message}<br>
+                            Please check your configuration and internet connection.
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Setup Failed</strong><br>
+                        ${error.message}<br>
+                        Please check your Microsoft Forms URL and try again.
+                    </div>
+                `;
+                console.error('Microsoft Forms setup test error:', error);
+            }
+        }
+
+        function updateStatus() {
+            // Update URL Status
+            const urlStatus = document.getElementById('urlStatus');
+            const savedUrl = localStorage.getItem('ecopots_ms_form_url');
+            if (savedUrl) {
+                urlStatus.innerHTML = `<span style="color: #4CAF50;">✅ Configured</span><br><small>${savedUrl.substring(0, 30)}...</small>`;
+            } else {
+                urlStatus.innerHTML = `<span style="color: #FF9800;">⚠️ Not Set</span>`;
+            }
+
+            // Update Online Status
+            const onlineStatus = document.getElementById('onlineStatus');
+            onlineStatus.innerHTML = navigator.onLine ?
+                '<span style="color: #4CAF50;">🟢 Online</span>' :
+                '<span style="color: #F44336;">🔴 Offline</span>';
+
+            // Update Submission Stats
+            const submissionStats = document.getElementById('submissionStats');
+            if (window.msFormsHandler) {
+                const stats = window.msFormsHandler.getSubmissionStats();
+                submissionStats.innerHTML = `
+                    <div>Successful: ${stats.successful}</div>
+                    <div>Stored: ${stats.stored}</div>
+                    <div>Total: ${stats.total}</div>
+                `;
+            }
+
+            // Update Storage Status
+            const storageStatus = document.getElementById('storageStatus');
+            const storageAvailable = typeof(Storage) !== "undefined";
+            storageStatus.innerHTML = storageAvailable ?
+                '<span style="color: #4CAF50;">✅ Available</span>' :
+                '<span style="color: #F44336;">❌ Not Available</span>';
+        }
+
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('configStatus');
+            const className = type || 'success';
+            statusDiv.innerHTML = `<div class="${className}">${message}</div>`;
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                statusDiv.innerHTML = '';
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
