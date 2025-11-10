@@ -211,10 +211,15 @@ body {
 /* Section styling */
 section {
     padding: var(--spacing-xl) 0;
+    animation: fadeIn 0.8s ease-out;
 }
 
 section:nth-child(even) {
     background-color: var(--very-light-green);
+}
+
+section:nth-child(odd) {
+    background-color: var(--warm-white);
 }
 
 /* About initiative section */
