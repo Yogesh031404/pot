@@ -154,7 +154,7 @@ class FormValidator {
 
                 case 'department':
                     isValid = this.validateDepartment(value);
-                    errorMessage = 'Please select a valid department';
+                    errorMessage = 'Please enter a valid department name';
                     break;
 
                 case 'yearOfStudy':
