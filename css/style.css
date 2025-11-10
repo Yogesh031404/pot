@@ -1132,7 +1132,7 @@ footer {
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-lg);
-    border-top: 1px solid var(--earth-brown);
+    border-top: 1px solid var(--dark-green);
     color: var(--light-gray);
 }
 
