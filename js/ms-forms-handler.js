@@ -114,29 +114,24 @@ class MSFormsHandler {
     // Direct submission to Microsoft Forms
     async submitDirectly(data) {
         try {
-            // Microsoft Forms doesn't directly support API submissions
-            // We'll store the data locally and redirect to next page
-            // Data can be manually entered into Microsoft Forms or exported later
+            // Redirect user to Microsoft Forms with pre-filled data
+            const formData = this.formatFormDataForMSForms(data);
+            const formUrlWithParams = `${this.formUrl}?${formData}`;
 
-            // Store data for next page and local backup
+            // Store data locally for backup and thanks page
             localStorage.setItem('lastSubmission', JSON.stringify(data));
-
-            // Store in submissions array for manual entry/export
             this.storeSuccessfulSubmission(data);
-
-            // Create export-ready data
-            this.createSubmissionBackup(data);
 
             return {
                 success: true,
-                message: 'Registration successful! Your data has been saved locally. Redirecting to confirmation page...',
+                message: 'Registration successful! Redirecting to Microsoft Forms...',
                 registrationId: data.registrationId,
-                redirectToNext: true,
-                dataStored: true
+                redirectToMicrosoftForms: true,
+                microsoftFormsUrl: formUrlWithParams
             };
 
         } catch (error) {
-            throw new Error('Failed to save registration data: ' + error.message);
+            throw new Error('Failed to prepare Microsoft Forms: ' + error.message);
         }
     }
 
