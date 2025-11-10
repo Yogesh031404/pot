@@ -419,8 +419,9 @@ section:nth-child(even) {
 
 .material-card.selected {
     border-color: var(--primary-green);
-    background: var(--accent-green);
+    background: linear-gradient(135deg, var(--primary-green), var(--light-green));
     color: var(--white);
+    animation: pulse-selection 2s ease-in-out infinite;
 }
 
 .material-icon {
