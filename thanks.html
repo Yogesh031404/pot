@@ -31,6 +31,27 @@
                     <p class="success-subtitle">Your registration has been successfully submitted</p>
                 </div>
 
+                <div class="microsoft-forms-notice" style="background: var(--pale-green); padding: 20px; border-radius: 12px; margin: 20px 0; border-left: 4px solid var(--primary-green);">
+                    <h3 style="color: var(--dark-green); margin-bottom: 10px;">📋 Important: Complete Your Registration</h3>
+                    <p style="margin-bottom: 15px;">
+                        Your registration details have been saved. To complete your registration, please fill out the Microsoft Forms that should have opened in a new tab.
+                    </p>
+                    <p style="margin-bottom: 15px;">
+                        If the form didn't open automatically, please click the button below:
+                    </p>
+                    <button
+                        onclick="window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank')"
+                        style="background: var(--primary-green); color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: 500; transition: all 0.3s ease;"
+                        onmouseover="this.style.background='var(--dark-green)'; this.style.transform='translateY(-2px)';"
+                        onmouseout="this.style.background='var(--primary-green)'; this.style.transform='translateY(0)';"
+                    >
+                        📝 Open Microsoft Forms
+                    </button>
+                    <p style="margin-top: 15px; font-size: 14px; color: var(--text-secondary);">
+                        <strong>Note:</strong> Your registration will only be complete after you submit the Microsoft Forms. This allows us to track all registrations properly.
+                    </p>
+                </div>
+
                 <div class="registration-summary" id="registrationSummary">
                     <h2>Registration Summary</h2>
                     <div class="summary-card">
