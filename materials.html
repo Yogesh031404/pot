@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Material - Eco-Pots</title>
+    <meta name="description" content="Choose the waste material you'll use to create your eco-pot for classroom saplings.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1>🌱 Eco-Pots</h1>
+                </div>
+                <div class="nav-links">
+                    <span class="step-indicator">Step 2 of 4</span>
+                </div>
+            </nav>
+            <div class="breadcrumb">
+                <a href="index.html">← Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="materials-selection">
+            <div class="container">
+                <h1 class="page-title">Choose Your Waste Material</h1>
+                <p class="page-subtitle">Select the type of waste material you have available to transform into a plant pot</p>
+
+                <div class="materials-grid">
+                    <div class="material-card" data-material="plastic-bottles" onclick="selectMaterial('plastic-bottles')">
+                        <div class="material-icon">🍶</div>
+                        <h3>Plastic Bottles</h3>
+                        <p>Water bottles, soda bottles, containers, any plastic items that can hold soil</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Water bottles (500ml-2L)</li>
+                                <li>Soda bottles</li>
+                                <li>Food containers</li>
+                                <li>Detergent bottles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="ropes-strings" onclick="selectMaterial('ropes-strings')">
+                        <div class="material-icon">🪢</div>
+                        <h3>Ropes & Strings</h3>
+                        <p>Natural or synthetic ropes, twine, strings that can be woven or shaped into pots</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Jute ropes</li>
+                                <li>Nylon strings</li>
+                                <li>Cotton ropes</li>
+                                <li>Twine or yarn</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="old-shoes" onclick="selectMaterial('old-shoes')">
+                        <div class="material-icon">👟</div>
+                        <h3>Old Shoes</h3>
+                        <p>Any type of footwear that can be converted into planters for small plants</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Old sneakers</li>
+                                <li>Boots (any size)</li>
+                                <li>Sandals with sturdy base</li>
+                                <li>Any footwear that can hold soil</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="glass-jars" onclick="selectMaterial('glass-jars')">
+                        <div class="material-icon">🫙</div>
+                        <h3>Glass Jars</h3>
+                        <p>Jam jars, sauce jars, glass containers that can serve as transparent planters</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Jam or pickle jars</li>
+                                <li>Sauce or spread jars</li>
+                                <li>Candle holders</li>
+                                <li>Any glass containers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="metal-cans" onclick="selectMaterial('metal-cans')">
+                        <div class="material-icon">🥫</div>
+                        <h3>Metal Cans</h3>
+                        <p>Food cans, paint cans, metal containers that can be painted and used as planters</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Food cans (various sizes)</li>
+                                <li>Paint or oil cans</li>
+                                <li>Metal tins</li>
+                                <li>Aluminum containers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="material-card" data-material="other-materials" onclick="selectMaterial('other-materials')">
+                        <div class="material-icon">📦</div>
+                        <h3>Other Materials</h3>
+                        <p>Creative waste items that can be repurposed into plant containers</p>
+                        <div class="material-examples">
+                            <span>Examples:</span>
+                            <ul>
+                                <li>Old containers</li>
+                                <li>Broken pottery pieces</li>
+                                <li>Fabric scraps</li>
+                                <li>Other creative waste items</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="selection-controls">
+                    <div class="selected-display" id="selectedDisplay">
+                        <p>No material selected</p>
+                    </div>
+                    <button class="next-button" id="nextButton" onclick="proceedToRegistration()" disabled>
+                        Next: Register Your Details
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="material-tips">
+            <div class="container">
+                <h2>Tips for Preparing Your Material</h2>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3>🧼 Clean Thoroughly</h3>
+                        <p>Wash your selected material to remove any residue, labels, or contaminants</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🔧 Ensure Drainage</h3>
+                        <p>Make sure your material can or will be modified to allow water drainage</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>🎨 Get Creative</h3>
+                        <p>Think about how you can decorate or modify your material to make it unique</p>
+                    </div>
+                    <div class="tip-card">
+                        <h3>📏 Size Matters</h3>
+                        <p>Consider the size - it should be appropriate for the sapling you'll receive</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eco-Pots Initiative</h3>
+                    <p>Transforming waste into green classrooms, one student at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Need Help?</h3>
+                    <p>If you're unsure about your material choice, feel free to contact us!</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
