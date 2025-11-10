@@ -92,8 +92,16 @@
 
                         <div class="form-group">
                             <label for="selectedMaterial">Selected Material *</label>
-                            <input type="text" id="selectedMaterial" name="selectedMaterial" readonly>
-                            <small>Material selected from previous step</small>
+                            <select id="selectedMaterial" name="selectedMaterial" required>
+                                <option value="">Select your material</option>
+                                <option value="Plastic Bottles">Plastic Bottles</option>
+                                <option value="Ropes & Strings">Ropes & Strings</option>
+                                <option value="Old Shoes">Old Shoes</option>
+                                <option value="Glass Jars">Glass Jars</option>
+                                <option value="Metal Cans">Metal Cans</option>
+                                <option value="Other Materials">Other Materials</option>
+                            </select>
+                            <small>Select the material you'll use for your eco-pot</small>
                         </div>
 
                         <div class="form-group">
