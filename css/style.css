@@ -370,7 +370,7 @@ section:nth-child(even) {
 
 .material-card {
     background: var(--white);
-    border: 2px solid var(--medium-gray);
+    border: 2px solid var(--pale-green);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     cursor: pointer;
