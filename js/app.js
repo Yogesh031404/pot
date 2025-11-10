@@ -254,8 +254,8 @@ async function handleSubmit(event) {
         data.timestamp = new Date().toISOString();
         data.registrationId = generateRegistrationId();
 
-        // Submit using Simple Form Handler (Netlify Forms)
-        const response = await window.simpleFormHandler.submitRegistration(data);
+        // Submit using Microsoft Forms Handler
+        const response = await window.msFormsHandler.submitRegistration(data);
 
         if (response.success) {
             // Save successful submission data
