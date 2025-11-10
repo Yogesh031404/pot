@@ -140,11 +140,17 @@
 
     <div class="container">
         <h2>⚙️ Configuration</h2>
+        <div class="success">
+            <h3>✅ Microsoft Forms Already Configured!</h3>
+            <p>Your Microsoft Forms integration is pre-configured and ready to use:</p>
+            <p><strong>Form URL:</strong> https://forms.office.com/r/f3Vim0S7AC</p>
+            <p>You can now go to your registration form and start collecting student registrations!</p>
+        </div>
         <div class="step">
-            <h3>Step 1: Enter Your Microsoft Forms Link</h3>
-            <p>Paste your Microsoft Forms URL below:</p>
-            <textarea id="msFormsUrl" rows="3" placeholder="https://forms.office.com/Pages/ResponsePage.aspx?id=YOUR_FORM_ID"></textarea>
-            <button onclick="saveMsFormsUrl()">💾 Save Microsoft Forms URL</button>
+            <h3>Optional: Update Microsoft Forms Link</h3>
+            <p>If you need to change the form, enter a new URL below:</p>
+            <textarea id="msFormsUrl" rows="3" placeholder="https://forms.office.com/r/f3Vim0S7AC"></textarea>
+            <button onclick="saveMsFormsUrl()">💾 Update Microsoft Forms URL</button>
             <button onclick="clearConfig()">🗑️ Clear Configuration</button>
         </div>
 
