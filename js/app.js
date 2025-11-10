@@ -146,6 +146,9 @@ function initializeRegistrationPage() {
         if (craftDescription) {
             craftDescription.addEventListener('input', updateCharacterCount);
         }
+
+        // Initialize submit button state
+        updateSubmitButton();
     }
 }
 
