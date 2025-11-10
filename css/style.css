@@ -25,12 +25,15 @@
     --warm-white: #FFFEF7;         /* Warm white for comfortable reading */
     --cream: #FFF8E1;              /* Cream color for soft backgrounds */
 
-    /* Neutral colors - light variants */
+    /* Neutral colors - sophisticated text hierarchy */
     --white: #FFFFFF;
-    --light-gray: #F8F8F8;
-    --medium-gray: #E0E0E0;
-    --dark-gray: #424242;
-    --black: #212121;
+    --light-gray: #F8F9FA;         /* Very light gray - softer than pure white */
+    --medium-gray: #E2E8F0;        /* Cool medium gray */
+    --dark-gray: #374151;          /* Charcoal gray - easier on eyes than black */
+    --black: #1F2937;              /* Soft black for text */
+    --text-primary: #1F2937;       /* Primary text color */
+    --text-secondary: #6B7280;     /* Secondary text color */
+    --text-muted: #9CA3AF;         /* Muted text for captions */
 
     /* Status colors - softer variants */
     --success: #66BB6A;
