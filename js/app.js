@@ -269,8 +269,19 @@ async function handleSubmit(event) {
         const response = await window.msFormsHandler.submitRegistration(data);
 
         if (response.success) {
-            // Save successful submission data
+            // Save successful submission data for next page
             localStorage.setItem('lastSubmission', JSON.stringify(data));
+            localStorage.setItem('registrationData', JSON.stringify({
+                fullName: data.fullName,
+                registrationId: response.registrationId || data.registrationId,
+                email: data.email,
+                phone: data.phone,
+                department: data.department,
+                yearOfStudy: data.yearOfStudy,
+                selectedMaterial: data.selectedMaterial,
+                timestamp: data.timestamp,
+                craftDescription: data.craftDescription
+            }));
 
             // Clear form data
             localStorage.removeItem('registrationFormData');
@@ -279,9 +290,10 @@ async function handleSubmit(event) {
             // Show success and redirect
             showMessage('Registration successful! Redirecting...', 'success');
 
+            // Immediate redirect to thanks page
             setTimeout(() => {
                 window.location.href = 'thanks.html';
-            }, 2000);
+            }, 1500);
         } else {
             throw new Error(response.message || 'Submission failed');
         }
