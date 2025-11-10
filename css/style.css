@@ -634,7 +634,7 @@ section:nth-child(even) {
     text-align: center;
     margin-top: var(--spacing-lg);
     padding: var(--spacing-md);
-    background: var(--light-gray);
+    background: var(--pale-green);
     border-radius: var(--radius-md);
     color: var(--dark-gray);
 }
