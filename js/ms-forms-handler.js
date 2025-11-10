@@ -245,6 +245,88 @@ class MSFormsHandler {
         }
     }
 
+    // Create submission backup for manual entry
+    createSubmissionBackup(data) {
+        try {
+            const backupData = {
+                ...data,
+                formUrl: this.formUrl,
+                submittedAt: new Date().toISOString(),
+                manualEntryRequired: true
+            };
+
+            // Store in a separate backup key for easy access
+            const backups = JSON.parse(localStorage.getItem('ecopots_manual_entry_backup') || '[]');
+            backups.push(backupData);
+
+            // Keep only last 20 backups
+            if (backups.length > 20) {
+                backups.splice(0, backups.length - 20);
+            }
+
+            localStorage.setItem('ecopots_manual_entry_backup', JSON.stringify(backups));
+            console.log('Submission backup created for manual entry:', data.registrationId);
+
+        } catch (error) {
+            console.error('Error creating submission backup:', error);
+        }
+    }
+
+    // Get manual entry backups
+    getManualEntryBackups() {
+        try {
+            return JSON.parse(localStorage.getItem('ecopots_manual_entry_backup') || '[]');
+        } catch (error) {
+            console.error('Error getting manual entry backups:', error);
+            return [];
+        }
+    }
+
+    // Generate manual entry HTML for easy copy-paste
+    generateManualEntryHTML() {
+        try {
+            const backups = this.getManualEntryBackups();
+            if (backups.length === 0) {
+                return '<p>No registrations requiring manual entry.</p>';
+            }
+
+            let html = `
+                <div style="font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+                    <h2>Eco-Pots Registrations - Manual Entry Required</h2>
+                    <p>Total registrations: ${backups.length}</p>
+                    <p>Copy and paste each registration into your Microsoft Forms: <a href="${this.formUrl}" target="_blank">${this.formUrl}</a></p>
+                    <hr>
+            `;
+
+            backups.forEach((backup, index) => {
+                const data = backup.data;
+                html += `
+                    <div style="margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+                        <h3>Registration #${index + 1} - ${data.registrationId}</h3>
+                        <p><strong>Submitted:</strong> ${new Date(backup.submittedAt).toLocaleString()}</p>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Full Name:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.fullName}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Roll Number:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.rollNumber}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Email:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.email}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Phone:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.phone}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Department:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.department}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Year of Study:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.yearOfStudy}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd;"><strong>Selected Material:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.selectedMaterial}</td></tr>
+                            <tr><td style="padding: 5px; border: 1px solid #ddd; vertical-align: top;"><strong>Craft Description:</strong></td><td style="padding: 5px; border: 1px solid #ddd;">${data.craftDescription}</td></tr>
+                        </table>
+                    </div>
+                `;
+            });
+
+            html += '</div>';
+            return html;
+
+        } catch (error) {
+            console.error('Error generating manual entry HTML:', error);
+            return '<p>Error generating manual entry data.</p>';
+        }
+    }
+
     // Generate unique registration ID
     generateRegistrationId() {
         const timestamp = Date.now().toString(36);
