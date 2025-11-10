@@ -520,46 +520,67 @@ function initializeThanksPage() {
 }
 
 function loadRegistrationSummary() {
-    const submissionData = localStorage.getItem('lastSubmission');
+    const materialSelection = localStorage.getItem('materialSelection');
+    const registrationId = localStorage.getItem('registrationId');
+    const selectedMaterial = localStorage.getItem('selectedMaterial');
 
-    if (submissionData) {
+    if (materialSelection || (selectedMaterial && registrationId)) {
         try {
-            const data = JSON.parse(submissionData);
+            let data = {};
+            if (materialSelection) {
+                data = JSON.parse(materialSelection);
+            } else {
+                data = {
+                    selectedMaterial: materialTypes[selectedMaterial] || selectedMaterial,
+                    registrationId: registrationId,
+                    timestamp: new Date().toISOString()
+                };
+            }
 
-            // Populate summary fields
-            const fields = {
-                'summaryName': data.fullName,
-                'summaryRollNumber': data.rollNumber,
-                'summaryEmail': data.email,
-                'summaryPhone': data.phone,
-                'summaryDepartment': data.department,
-                'summaryYear': data.yearOfStudy,
-                'summaryMaterial': data.selectedMaterial,
-                'summaryDescription': data.craftDescription,
-                'registrationId': data.registrationId,
-                'registrationDate': formatDate(data.timestamp)
-            };
-
-            Object.keys(fields).forEach(fieldId => {
-                const element = document.getElementById(fieldId);
-                if (element) {
-                    element.textContent = fields[fieldId];
-                }
-            });
-
-        } catch (e) {
-            console.error('Error loading submission data:', e);
-            // Show error message
+            // Update summary for simplified flow - focus on material selection and Microsoft Forms
             const summaryElement = document.querySelector('.registration-summary');
             if (summaryElement) {
-                summaryElement.innerHTML = '<p>Error loading registration details. Please contact support.</p>';
+                summaryElement.innerHTML = `
+                    <div class="simple-summary" style="text-align: center; padding: 20px;">
+                        <h3 style="color: var(--primary-green); margin-bottom: 20px;">🌱 Material Selection Confirmed!</h3>
+                        <div style="background: var(--pale-green); padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+                            <h4>Registration ID: ${data.registrationId || 'ECO-' + Date.now().toString(36).toUpperCase()}</h4>
+                            <p><strong>Selected Material:</strong> ${data.selectedMaterial}</p>
+                            <p><strong>Selection Date:</strong> ${formatDate(data.timestamp)}</p>
+                        </div>
+                        <p style="color: var(--text-secondary); margin-top: 20px;">
+                            Your material choice has been saved. Please complete the registration by filling out the Microsoft Forms.
+                        </p>
+                    </div>
+                `;
+            }
+
+        } catch (e) {
+            console.error('Error loading material selection data:', e);
+            // Show simple message
+            const summaryElement = document.querySelector('.registration-summary');
+            if (summaryElement) {
+                summaryElement.innerHTML = `
+                    <div class="simple-summary" style="text-align: center; padding: 20px;">
+                        <h3 style="color: var(--primary-green);">🌱 Welcome to Eco-Pots!</h3>
+                        <p>Thank you for selecting your material. Please complete your registration by filling out the Microsoft Forms.</p>
+                    </div>
+                `;
             }
         }
     } else {
-        // No submission data found
+        // No selection data found
         const summaryElement = document.querySelector('.registration-summary');
         if (summaryElement) {
-            summaryElement.innerHTML = '<p>No registration data found. Please complete the registration process.</p>';
+            summaryElement.innerHTML = `
+                <div class="simple-summary" style="text-align: center; padding: 20px;">
+                    <h3 style="color: var(--primary-green);">🌱 Welcome to Eco-Pots!</h3>
+                    <p>Your journey begins here. Please start from the home page to select your material and complete registration.</p>
+                    <a href="index.html" style="display: inline-block; background: var(--primary-green); color: white; padding: 12px 24px; text-decoration: none; border-radius: 8px; margin-top: 15px;">
+                        Go to Home Page
+                    </a>
+                </div>
+            `;
         }
     }
 }
