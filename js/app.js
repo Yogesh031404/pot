@@ -254,8 +254,8 @@ async function handleSubmit(event) {
         data.timestamp = new Date().toISOString();
         data.registrationId = generateRegistrationId();
 
-        // Submit to Google Sheets
-        const response = await submitToGoogleSheets(data);
+        // Submit to Google Sheets using the Google Sheets Manager
+        const response = await window.googleSheetsManager.submitRegistration(data);
 
         if (response.success) {
             // Save successful submission data
