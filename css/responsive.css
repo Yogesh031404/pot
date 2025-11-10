@@ -1,0 +1,667 @@
+/* Responsive Design Styles */
+
+/* Extra small devices (phones, 320px and up) */
+@media screen and (max-width: 575px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    /* Navigation */
+    .nav {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+        text-align: center;
+    }
+
+    .nav-brand h1 {
+        font-size: 1.25rem;
+    }
+
+    .nav-links .step-indicator {
+        font-size: 0.75rem;
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    /* Hero section */
+    .hero {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-lg);
+    }
+
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+        font-size: 1rem;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    /* Page titles */
+    .page-title {
+        font-size: 1.75rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    /* Section spacing */
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    /* Role cards */
+    .role-cards {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .role-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Steps */
+    .steps .step {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+
+    .step-number {
+        width: 56px;
+        height: 56px;
+        font-size: 1.5rem;
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .material-card {
+        padding: var(--spacing-md);
+    }
+
+    .material-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Tips grid */
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Registration form */
+    .registration-form {
+        padding: var(--spacing-lg);
+        margin: 0 var(--spacing-sm);
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .back-button,
+    .submit-button {
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+
+    /* Guidelines grid */
+    .guidelines-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Success section */
+    .success-title {
+        font-size: 1.75rem;
+    }
+
+    .success-subtitle {
+        font-size: 1rem;
+    }
+
+    .celebration-icon {
+        font-size: 3rem;
+    }
+
+    /* Registration summary */
+    .summary-card {
+        margin: 0 var(--spacing-sm);
+    }
+
+    .summary-content {
+        padding: var(--spacing-lg);
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .summary-footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .download-options {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .download-button,
+    .print-button {
+        width: 100%;
+        padding: var(--spacing-md);
+    }
+
+    /* Appreciation message */
+    .appreciation-message {
+        margin: 0 var(--spacing-sm);
+        padding: var(--spacing-lg);
+    }
+
+    .appreciation-message h2 {
+        font-size: 1.5rem;
+    }
+
+    .appreciation-message p {
+        font-size: 1rem;
+    }
+
+    /* Next steps */
+    .timeline-step {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+
+    .timeline-step .step-number {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto;
+    }
+
+    /* Community cards */
+    .community-links {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    .community-card {
+        padding: var(--spacing-lg);
+    }
+
+    .community-icon {
+        font-size: 2.5rem;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    /* Auto save indicator */
+    .auto-save-indicator {
+        bottom: var(--spacing-md);
+        right: var(--spacing-md);
+        left: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-md);
+    }
+
+    /* Hero section */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+
+    /* Role cards */
+    .role-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tips grid */
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Registration form */
+    .registration-form {
+        margin: 0 auto;
+        max-width: 500px;
+    }
+
+    /* Guidelines grid */
+    .guidelines-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Info grid */
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Community cards */
+    .community-links {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    /* Hero section */
+    .hero-title {
+        font-size: 2.75rem;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Role cards */
+    .role-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Tips grid */
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Guidelines grid */
+    .guidelines-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Info grid */
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Community cards */
+    .community-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+
+    /* Role cards */
+    .role-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Tips grid */
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Guidelines grid */
+    .guidelines-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Info grid */
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Community cards */
+    .community-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    /* Container */
+    .container {
+        max-width: 1200px;
+        padding: 0 var(--spacing-xl);
+    }
+
+    /* Hero section */
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    /* Role cards */
+    .role-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Tips grid */
+    .tips-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Guidelines grid */
+    .guidelines-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Info grid */
+    .info-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Community cards */
+    .community-links {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Footer */
+    .footer-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* High resolution devices (1400px and up) */
+@media screen and (min-width: 1400px) {
+    /* Container */
+    .container {
+        max-width: 1400px;
+    }
+
+    /* Hero section */
+    .hero-title {
+        font-size: 4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+        gap: var(--spacing-xl);
+    }
+
+    /* Materials grid */
+    .materials-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+    }
+
+    /* Role cards */
+    .role-cards {
+        gap: var(--spacing-xl);
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase touch targets */
+    .cta-button,
+    .next-button,
+    .submit-button,
+    .back-button,
+    .community-button {
+        min-height: 48px;
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .material-card {
+        padding: var(--spacing-lg);
+    }
+
+    /* Remove hover effects on touch devices */
+    .material-card:hover,
+    .role-card:hover,
+    .stat-card:hover,
+    .community-card:hover {
+        transform: none;
+    }
+
+    /* Make sure interactive elements are properly spaced */
+    .nav-links .step-indicator {
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    /* Form elements */
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        min-height: 48px;
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+}
+
+/* Landscape orientation adjustments */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    /* Reduce vertical spacing on landscape */
+    .hero {
+        padding: var(--spacing-lg) 0;
+    }
+
+    section {
+        padding: var(--spacing-lg) 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+
+    .cta-button {
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+
+    /* Reduce icon sizes */
+    .material-icon,
+    .role-icon,
+    .community-icon {
+        font-size: 2rem;
+    }
+
+    .celebration-icon {
+        font-size: 2.5rem;
+    }
+}
+
+/* Accessibility improvements for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable animations for users who prefer reduced motion */
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .celebration-icon {
+        animation: none;
+    }
+
+    .fade-in {
+        animation: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-green: #006600;
+        --light-green: #009900;
+        --dark-green: #003300;
+        --accent-green: #00cc00;
+    }
+
+    .material-card,
+    .role-card,
+    .community-card {
+        border: 3px solid var(--dark-gray);
+    }
+
+    .material-card.selected {
+        border-color: var(--primary-green);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: 3px solid var(--primary-green);
+        outline-offset: 2px;
+    }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --white: #1a1a1a;
+        --light-gray: #2d2d2d;
+        --medium-gray: #404040;
+        --dark-gray: #cccccc;
+        --black: #ffffff;
+    }
+
+    .hero {
+        background: linear-gradient(135deg, var(--dark-green), var(--primary-green));
+    }
+
+    .material-card,
+    .role-card,
+    .stat-card,
+    .community-card,
+    .testimonial-card {
+        background: var(--light-gray);
+        color: var(--dark-gray);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        background: var(--light-gray);
+        color: var(--dark-gray);
+        border-color: var(--medium-gray);
+    }
+
+    .registration-form,
+    .summary-card {
+        background: var(--light-gray);
+        color: var(--dark-gray);
+    }
+
+    footer {
+        background: var(--black);
+        color: var(--light-gray);
+    }
+}
