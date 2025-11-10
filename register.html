@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Eco-Pots</title>
+    <meta name="description" content="Register for the Eco-Pots initiative and share your details for sustainable pot creation.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="page-header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1>🌱 Eco-Pots</h1>
+                </div>
+                <div class="nav-links">
+                    <span class="step-indicator">Step 3 of 4</span>
+                </div>
+            </nav>
+            <div class="breadcrumb">
+                <a href="materials.html">← Back to Material Selection</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="registration-section">
+            <div class="container">
+                <h1 class="page-title">Register for Eco-Pots Initiative</h1>
+                <p class="page-subtitle">Share your details and creative vision for your eco-pot</p>
+
+                <form id="registrationForm" class="registration-form" onsubmit="handleSubmit(event)">
+                    <div class="form-section">
+                        <h2>Personal Information</h2>
+
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required minlength="2" maxlength="50">
+                            <span class="error-message" id="fullNameError"></span>
+                            <small>Enter your full name as per college records</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rollNumber">Roll Number *</label>
+                            <input type="text" id="rollNumber" name="rollNumber" required pattern="[A-Za-z0-9]+" minlength="5" maxlength="20">
+                            <span class="error-message" id="rollNumberError"></span>
+                            <small>College roll number (alphanumeric only)</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                            <small>College email address for communication</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" maxlength="10">
+                            <span class="error-message" id="phoneError"></span>
+                            <small>10-digit mobile number (without country code)</small>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Academic Details</h2>
+
+                        <div class="form-group">
+                            <label for="department">Department *</label>
+                            <select id="department" name="department" required>
+                                <option value="">Select your department</option>
+                                <option value="CSE">Computer Science & Engineering</option>
+                                <option value="ECE">Electronics & Communication Engineering</option>
+                                <option value="EEE">Electrical & Electronics Engineering</option>
+                                <option value="Mechanical">Mechanical Engineering</option>
+                                <option value="Civil">Civil Engineering</option>
+                                <option value="Chemical">Chemical Engineering</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <span class="error-message" id="departmentError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="yearOfStudy">Year of Study *</label>
+                            <select id="yearOfStudy" name="yearOfStudy" required>
+                                <option value="">Select your year</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                            <span class="error-message" id="yearOfStudyError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Project Details</h2>
+
+                        <div class="form-group">
+                            <label for="selectedMaterial">Selected Material *</label>
+                            <input type="text" id="selectedMaterial" name="selectedMaterial" readonly>
+                            <small>Material selected from previous step</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="craftDescription">Craft Description *</label>
+                            <textarea id="craftDescription" name="craftDescription" required minlength="50" maxlength="500" rows="5"></textarea>
+                            <span class="error-message" id="craftDescriptionError"></span>
+                            <small>Describe your eco-pot design idea (50-500 characters). How will you transform your selected material into a plant pot?</small>
+                            <div class="character-count">
+                                <span id="charCount">0</span>/500 characters
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="back-button" onclick="window.location.href='materials.html'">
+                            ← Back to Materials
+                        </button>
+                        <button type="submit" class="submit-button" id="submitButton" disabled>
+                            Submit Registration
+                        </button>
+                    </div>
+
+                    <div class="form-status" id="formStatus">
+                        <p>All fields marked with * are required. Please fill in all details to proceed.</p>
+                    </div>
+                </form>
+
+                <div class="auto-save-indicator" id="autoSaveIndicator">
+                    <span class="save-icon">💾</span>
+                    <span id="saveStatus">Draft saved</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="guidelines">
+            <div class="container">
+                <h2>Registration Guidelines</h2>
+                <div class="guidelines-grid">
+                    <div class="guideline-card">
+                        <h3>📝 Accurate Information</h3>
+                        <p>Ensure all provided details are correct and match your college records</p>
+                    </div>
+                    <div class="guideline-card">
+                        <h3>🎨 Creative Vision</h3>
+                        <p>Share your creative ideas for transforming the waste material</p>
+                    </div>
+                    <div class="guideline-card">
+                        <h3>📧 Stay Connected</h3>
+                        <p>Use a valid email address for receiving updates about sapling distribution</p>
+                    </div>
+                    <div class="guideline-card">
+                        <h3>🤝 Community Spirit</h3>
+                        <p>This is a collaborative initiative, not a competition</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eco-Pots Initiative</h3>
+                    <p>Transforming waste into green classrooms, one student at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Questions?</h3>
+                    <p>Feel free to reach out if you need help with registration</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/form-validator.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
