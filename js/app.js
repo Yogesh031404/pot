@@ -609,6 +609,36 @@ function updateMicrosoftFormsNotice() {
     noticeElement.innerHTML = content;
 }
 
+// Function to mark Microsoft Forms as completed
+function markFormsCompleted() {
+    const materialSelection = localStorage.getItem('materialSelection');
+    if (materialSelection) {
+        const data = JSON.parse(materialSelection);
+        data.formsCompleted = true;
+        data.completedAt = new Date().toISOString();
+        localStorage.setItem('materialSelection', JSON.stringify(data));
+
+        // Refresh the page to show completed state
+        updateMicrosoftFormsNotice();
+        loadRegistrationSummary();
+
+        // Show success message
+        const successMessage = document.createElement('div');
+        successMessage.style.cssText = `
+            position: fixed; top: 20px; right: 20px; z-index: 1000;
+            background: var(--success); color: white; padding: 15px 20px;
+            border-radius: 8px; box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease-out;
+        `;
+        successMessage.innerHTML = '🎉 Congratulations! Your registration is complete!';
+        document.body.appendChild(successMessage);
+
+        setTimeout(() => {
+            successMessage.remove();
+        }, 5000);
+    }
+}
+
 function loadRegistrationSummary() {
     const materialSelection = localStorage.getItem('materialSelection');
     const registrationId = localStorage.getItem('registrationId');
