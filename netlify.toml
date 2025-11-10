@@ -57,11 +57,7 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# Edge functions (if needed for advanced functionality)
-[[edge_functions]]
-  # Example edge function for form processing
-  path = "/api/submit"
-  function = "form-submit"
+# Edge functions - not needed for Microsoft Forms integration
 
 # Environment variables (these will be set in Netlify dashboard)
 # GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
