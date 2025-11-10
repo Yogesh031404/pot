@@ -138,12 +138,11 @@ function validateRegistrationData(data) {
     };
   }
 
-  // Validate department
-  const validDepartments = ['CSE', 'ECE', 'EEE', 'Mechanical', 'Civil', 'Chemical', 'Others'];
-  if (!validDepartments.includes(data.department)) {
+  // Validate department (text field - check basic requirements)
+  if (data.department.length < 2 || data.department.length > 50) {
     return {
       valid: false,
-      message: 'Invalid department'
+      message: 'Department name must be between 2 and 50 characters'
     };
   }
 
