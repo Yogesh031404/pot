@@ -3,8 +3,8 @@
 
 class MSFormsHandler {
     constructor() {
-        // Your Microsoft Forms link will go here
-        this.formUrl = ''; // Will be set by user
+        // Microsoft Forms URL pre-configured
+        this.formUrl = 'https://forms.office.com/r/f3Vim0S7AC';
         this.isOnline = navigator.onLine;
 
         // Listen for online/offline events
