@@ -294,11 +294,22 @@
         });
 
         function loadConfiguration() {
+            // Pre-populate with the configured URL
+            const defaultUrl = 'https://forms.office.com/r/f3Vim0S7AC';
+            document.getElementById('msFormsUrl').value = defaultUrl;
+
+            // Load any saved URL to override if needed
             const savedUrl = localStorage.getItem('ecopots_ms_form_url');
             if (savedUrl) {
                 document.getElementById('msFormsUrl').value = savedUrl;
                 if (window.msFormsHandler) {
                     window.msFormsHandler.setFormUrl(savedUrl);
+                }
+            } else {
+                // Set the default URL if no saved URL exists
+                localStorage.setItem('ecopots_ms_form_url', defaultUrl);
+                if (window.msFormsHandler) {
+                    window.msFormsHandler.setFormUrl(defaultUrl);
                 }
             }
         }
