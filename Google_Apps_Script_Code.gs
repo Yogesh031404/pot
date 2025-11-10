@@ -3,7 +3,7 @@
 
 // Configuration
 const CONFIG = {
-  SPREADSHEET_ID: 'YOUR_SPREADSHEET_ID_HERE', // Replace with actual spreadsheet ID
+  SPREADSHEET_ID: 'https://docs.google.com/spreadsheets/d/1N3kwsrMPHSJo-9K7IgWbtLPwRxLZBBAL_O4y7KNHvtg/edit?gid=0#gid=0', // Replace with actual spreadsheet ID
   SHEET_NAME: 'EcoPots_Student_Registrations',
   MAX_SUBMISSIONS_PER_MINUTE: 5,
   LOG_SHEET_NAME: 'Submission_Log'
