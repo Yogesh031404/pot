@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Eco-Pots</title>
+    <meta name="description" content="Thank you for joining the Eco-Pots initiative! Here are your registration details and next steps.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="success-header">
+        <div class="container">
+            <nav class="nav">
+                <div class="nav-brand">
+                    <h1>🌱 Eco-Pots</h1>
+                </div>
+                <div class="nav-links">
+                    <span class="step-indicator">Step 4 of 4 ✓</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="success-section">
+            <div class="container">
+                <div class="success-animation">
+                    <div class="celebration-icon">🎉</div>
+                    <h1 class="success-title">Thank You for Joining Our Green Initiative!</h1>
+                    <p class="success-subtitle">Your registration has been successfully submitted</p>
+                </div>
+
+                <div class="registration-summary" id="registrationSummary">
+                    <h2>Registration Summary</h2>
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3>Registration Details</h3>
+                            <div class="registration-id" id="registrationId">Loading...</div>
+                        </div>
+
+                        <div class="summary-content">
+                            <div class="summary-section">
+                                <h4>Personal Information</h4>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Name:</label>
+                                        <span id="summaryName">Loading...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Roll Number:</label>
+                                        <span id="summaryRollNumber">Loading...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Email:</label>
+                                        <span id="summaryEmail">Loading...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Phone:</label>
+                                        <span id="summaryPhone">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-section">
+                                <h4>Academic Details</h4>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <label>Department:</label>
+                                        <span id="summaryDepartment">Loading...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Year of Study:</label>
+                                        <span id="summaryYear">Loading...</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <label>Selected Material:</label>
+                                        <span id="summaryMaterial">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="summary-section">
+                                <h4>Craft Vision</h4>
+                                <div class="craft-description">
+                                    <p id="summaryDescription">Loading...</p>
+                                </div>
+                            </div>
+
+                            <div class="summary-footer">
+                                <div class="registration-date" id="registrationDate">
+                                    Registered on: Loading...
+                                </div>
+                                <div class="download-options">
+                                    <button class="download-button" onclick="downloadSummary()">
+                                        📄 Download Summary
+                                    </button>
+                                    <button class="print-button" onclick="window.print()">
+                                        🖨️ Print Summary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="appreciation-message">
+                    <h2>🌟 Your Environmental Contribution Matters!</h2>
+                    <p>
+                        By participating in this initiative, you're not just creating a plant pot—you're making a meaningful contribution to
+                        environmental conservation. Your eco-pot will help reduce waste, bring greenery to our classrooms, and inspire others
+                        to join this sustainable movement.
+                    </p>
+                    <p>
+                        Every transformed waste item is a step toward a cleaner, greener future. Together, we're showing how small individual
+                        actions can create significant positive change for our environment.
+                    </p>
+                </div>
+
+                <div class="next-steps">
+                    <h2>What's Next?</h2>
+                    <div class="steps-timeline">
+                        <div class="timeline-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Join Our Community</h3>
+                                <p>Connect with fellow eco-warriors and share your journey</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Prepare Your Material</h3>
+                                <p>Clean and prepare your selected waste material for transformation</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Receive Your Sapling</h3>
+                                <p>Collect your plant during the distribution event</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Create & Share</h3>
+                                <p>Transform your material and share your creation with the community</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-section">
+            <div class="container">
+                <h2>Join Our Eco-Community</h2>
+                <p>Stay connected, share your progress, and get inspired by others</p>
+
+                <div class="community-links">
+                    <div class="community-card whatsapp-card">
+                        <div class="community-icon">💬</div>
+                        <h3>WhatsApp Community</h3>
+                        <p>Join our WhatsApp group to connect with fellow participants</p>
+                        <button class="community-button whatsapp-button" onclick="joinWhatsAppGroup()">
+                            Join WhatsApp Group
+                        </button>
+                        <div class="qr-code" id="qrCode">
+                            <p>QR Code will be displayed here</p>
+                        </div>
+                    </div>
+
+                    <div class="community-card email-card">
+                        <div class="community-icon">📧</div>
+                        <h3>Email Support</h3>
+                        <p>Have questions? Reach out to us via email</p>
+                        <a href="mailto:ecopots@example.com" class="community-button email-button">
+                            ecopots@example.com
+                        </a>
+                    </div>
+
+                    <div class="community-card share-card">
+                        <div class="community-icon">📤</div>
+                        <h3>Share Initiative</h3>
+                        <p>Encourage your friends to join this green movement</p>
+                        <button class="community-button share-button" onclick="shareInitiative()">
+                            Share with Friends
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <div class="container">
+                <h2>What Our Eco-Warriors Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"This initiative changed how I see waste. Now I look at plastic bottles and see potential plant homes!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Sarah Chen</strong>
+                            <span>2nd Year, CSE</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"My classroom is greener and I've learned so much about recycling. This project is amazing!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <strong>Rahul Kumar</strong>
+                            <span>3rd Year, Mechanical</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Eco-Pots Initiative</h3>
+                    <p>Transforming waste into green classrooms, one student at a time.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="mailto:ecopots@example.com">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">📧</a>
+                        <a href="#" class="social-link">💬</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Eco-Pots Initiative. Together for a greener tomorrow.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
