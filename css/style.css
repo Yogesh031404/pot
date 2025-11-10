@@ -258,6 +258,7 @@ section:nth-child(even) {
     text-align: center;
     box-shadow: var(--shadow-md);
     transition: var(--transition-normal);
+    border: 1px solid var(--medium-gray);
 }
 
 .stat-card:hover {
