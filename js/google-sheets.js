@@ -2,13 +2,8 @@
 
 // Configuration - loads from localStorage or environment variables
 const CONFIG = {
-<<<<<<< HEAD
     GOOGLE_SCRIPT_URL: window.GOOGLE_SCRIPT_URL || localStorage.getItem('ecopots_script_url') || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec',
-    SPREADSHEET_ID: window.SPREADSHEET_ID || localStorage.getItem('ecopots_spreadsheet_id') || 'YOUR_SPREADSHEET_ID',
-=======
-    GOOGLE_SCRIPT_URL: window.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec',
-    SPREADSHEET_ID: window.SPREADSHEET_ID || 'https://docs.google.com/spreadsheets/d/1N3kwsrMPHSJo-9K7IgWbtLPwRxLZBBAL_O4y7KNHvtg/edit?gid=0#gid=0',
->>>>>>> 89ab5fb203e25237ed4e5b3a319e3dbfd77e7715
+    SPREADSHEET_ID: window.SPREADSHEET_ID || localStorage.getItem('ecopots_spreadsheet_id') || 'https://docs.google.com/spreadsheets/d/1N3kwsrMPHSJo-9K7IgWbtLPwRxLZBBAL_O4y7KNHvtg/edit?gid=0#gid=0',
     SHEET_NAME: 'EcoPots_Student_Registrations',
     MAX_RETRIES: 3,
     TIMEOUT: 30000 // 30 seconds
