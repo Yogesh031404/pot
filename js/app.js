@@ -101,6 +101,40 @@ function proceedToRegistration() {
     }
 }
 
+function proceedToMicrosoftForms() {
+    if (selectedMaterial) {
+        // Save selection and go directly to Microsoft Forms
+        const materialName = materialTypes[selectedMaterial] || selectedMaterial;
+
+        // Save for potential tracking/display purposes
+        localStorage.setItem('selectedMaterial', selectedMaterial);
+
+        // Generate registration ID for tracking
+        const registrationId = generateRegistrationId();
+        localStorage.setItem('registrationId', registrationId);
+
+        // Open Microsoft Forms in new tab
+        window.open('https://forms.office.com/r/f3Vim0S7AC', '_blank');
+
+        // Redirect to thanks page with information
+        localStorage.setItem('materialSelection', JSON.stringify({
+            selectedMaterial: materialName,
+            registrationId: registrationId,
+            timestamp: new Date().toISOString()
+        }));
+
+        // Show success message and redirect
+        alert('Great choice! Microsoft Forms is opening in a new tab. Please fill out the form to complete your registration.');
+
+        // Redirect to thanks page after a short delay
+        setTimeout(() => {
+            window.location.href = 'thanks.html';
+        }, 1000);
+    } else {
+        alert('Please select a material first before proceeding.');
+    }
+}
+
 // Registration Page Functions
 function initializeRegistrationPage() {
     // Load selected material from materials page
