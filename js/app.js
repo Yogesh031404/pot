@@ -295,7 +295,7 @@ async function handleSubmit(event) {
     }
 }
 
-function validateField(field) {
+function validateFieldApp(field) {
     let isValid = true;
     const errorElement = document.getElementById(`${field.name}Error`);
 
@@ -303,6 +303,7 @@ function validateField(field) {
     field.classList.remove('error');
     if (errorElement) {
         errorElement.textContent = '';
+        errorElement.style.display = 'none';
     }
 
     // Required field validation
@@ -310,8 +311,10 @@ function validateField(field) {
         isValid = false;
         if (errorElement) {
             errorElement.textContent = 'This field is required';
+            errorElement.style.display = 'block';
         }
         field.classList.add('error');
+        updateSubmitButton();
         return isValid;
     }
 
@@ -322,6 +325,7 @@ function validateField(field) {
                 isValid = false;
                 if (errorElement) {
                     errorElement.textContent = 'Name must be between 2 and 50 characters';
+                    errorElement.style.display = 'block';
                 }
                 field.classList.add('error');
             }
@@ -333,6 +337,7 @@ function validateField(field) {
                 isValid = false;
                 if (errorElement) {
                     errorElement.textContent = 'Roll number must be alphanumeric (5-20 characters)';
+                    errorElement.style.display = 'block';
                 }
                 field.classList.add('error');
             }
@@ -344,6 +349,7 @@ function validateField(field) {
                 isValid = false;
                 if (errorElement) {
                     errorElement.textContent = 'Please enter a valid email address';
+                    errorElement.style.display = 'block';
                 }
                 field.classList.add('error');
             }
@@ -355,6 +361,7 @@ function validateField(field) {
                 isValid = false;
                 if (errorElement) {
                     errorElement.textContent = 'Please enter a valid 10-digit mobile number';
+                    errorElement.style.display = 'block';
                 }
                 field.classList.add('error');
             }
@@ -365,13 +372,42 @@ function validateField(field) {
                 isValid = false;
                 if (errorElement) {
                     errorElement.textContent = 'Description must be between 50 and 500 characters';
+                    errorElement.style.display = 'block';
                 }
                 field.classList.add('error');
             }
             break;
     }
 
+    updateSubmitButton();
     return isValid;
+}
+
+function updateSubmitButton() {
+    const submitButton = document.getElementById('submitButton');
+    if (!submitButton) return;
+
+    const form = document.getElementById('registrationForm');
+    if (!form) return;
+
+    // Check all required fields
+    const requiredFields = form.querySelectorAll('input[required], select[required], textarea[required]');
+    let allValid = true;
+
+    requiredFields.forEach(field => {
+        if (!field.value.trim() || field.classList.contains('error')) {
+            allValid = false;
+        }
+
+        // Special validation for craft description length
+        if (field.name === 'craftDescription') {
+            if (field.value.length < 50 || field.value.length > 500) {
+                allValid = false;
+            }
+        }
+    });
+
+    submitButton.disabled = !allValid;
 }
 
 function validateForm(form) {
