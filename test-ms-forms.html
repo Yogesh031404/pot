@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Microsoft Forms - Eco-Pots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #2E7D32, #4CAF50);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #2E7D32;
+        }
+        button {
+            background: #81C784;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            background: #4CAF50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .success {
+            color: #E8F5E8;
+            background: rgba(76, 175, 80, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #4CAF50;
+        }
+        .warning {
+            color: #FFF3E0;
+            background: rgba(255, 152, 0, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #FF9800;
+        }
+        .error {
+            color: #FFEBEE;
+            background: rgba(244, 67, 54, 0.3);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #F44336;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        small {
+            display: block;
+            margin-top: 5px;
+            opacity: 0.8;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Test Microsoft Forms Integration</h1>
+        <p style="text-align: center;">
+            Fill out this test form to verify Microsoft Forms integration is working
+        </p>
+    </div>
+
+    <div class="container">
+        <form id="testForm" onsubmit="handleTestSubmission(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" required placeholder="Test Student">
+                <small>Test name for Microsoft Forms integration</small>
+            </div>
+
+            <div class="form-group">
+                <label for="rollNumber">Roll Number *</label>
+                <input type="text" id="rollNumber" name="rollNumber" required placeholder="TEST001">
+                <small>Test roll number</small>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required placeholder="test@example.com">
+                <small>Test email address</small>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="1234567890" maxlength="10">
+                <small>10-digit test phone number</small>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department *</label>
+                <input type="text" id="department" name="department" required placeholder="Computer Science & Engineering">
+                <small>Test department name</small>
+            </div>
+
+            <div class="form-group">
+                <label for="yearOfStudy">Year of Study *</label>
+                <select id="yearOfStudy" name="yearOfStudy" required>
+                    <option value="">Select year</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="selectedMaterial">Selected Material *</label>
+                <select id="selectedMaterial" name="selectedMaterial" required>
+                    <option value="">Select material</option>
+                    <option value="Plastic Bottles">Plastic Bottles</option>
+                    <option value="Ropes & Strings">Ropes & Strings</option>
+                    <option value="Old Shoes">Old Shoes</option>
+                    <option value="Glass Jars">Glass Jars</option>
+                    <option value="Metal Cans">Metal Cans</option>
+                    <option value="Other Materials">Other Materials</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="craftDescription">Craft Description *</label>
+                <textarea id="craftDescription" name="craftDescription" required rows="4" placeholder="This is a test craft description that meets the minimum length requirement. I plan to transform the selected material into a beautiful plant pot for classroom saplings. This test will verify that the Microsoft Forms integration is working correctly."></textarea>
+                <small>Test description (minimum 50 characters)</small>
+            </div>
+
+            <button type="submit" id="submitBtn">🚀 Submit Test Form</button>
+            <button type="button" onclick="testConnectionOnly()">🔗 Test Connection Only</button>
+            <button type="button" onclick="window.location.href='register.html'">📝 Go to Main Registration Form</button>
+
+            <div id="testResults"></div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h3>📋 What Happens When You Submit:</h3>
+        <ol>
+            <li>The form data will be prepared for Microsoft Forms</li>
+            <li>Your Microsoft Forms link will open in a new window/tab</li>
+            <li>You can complete the submission in Microsoft Forms</li>
+            <li>The submission will appear in your Microsoft Forms responses</li>
+            <li>You'll get a confirmation message here</li>
+        </ol>
+
+        <h3>🔗 Your Microsoft Forms Link:</h3>
+        <p><a href="https://forms.office.com/r/f3Vim0S7AC" target="_blank" style="color: #81C784;">https://forms.office.com/r/f3Vim0S7AC</a></p>
+    </div>
+
+    <div class="container" style="text-align: center;">
+        <p style="opacity: 0.8;">
+            <a href="index.html" style="color: #81C784; text-decoration: none;">← Back to Home</a> |
+            <a href="ms-forms-setup.html" style="color: #81C784; text-decoration: none;">Setup Page</a>
+        </p>
+    </div>
+
+    <script src="js/ms-forms-handler.js"></script>
+    <script>
+        async function handleTestSubmission(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const submitBtn = document.getElementById('submitBtn');
+            const resultsDiv = document.getElementById('testResults');
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = '🔄 Submitting...';
+            resultsDiv.innerHTML = '<div class="warning">🔄 Preparing submission to Microsoft Forms...</div>';
+
+            try {
+                // Collect form data
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData);
+
+                // Add required fields
+                data.selectedMaterial = document.getElementById('selectedMaterial').value;
+
+                if (!window.msFormsHandler) {
+                    throw new Error('Microsoft Forms handler not initialized');
+                }
+
+                // Submit to Microsoft Forms
+                const response = await window.msFormsHandler.submitRegistration(data);
+
+                if (response.success) {
+                    if (response.manualCompletion) {
+                        resultsDiv.innerHTML = `
+                            <div class="success">
+                                <strong>✅ Microsoft Forms Opened!</strong><br>
+                                ${response.message}<br>
+                                <strong>Registration ID:</strong> ${response.registrationId}<br>
+                                Please complete and submit the form in the new window/tab.
+                            </div>
+                        `;
+                    } else {
+                        resultsDiv.innerHTML = `
+                            <div class="success">
+                                <strong>✅ Test Submission Successful!</strong><br>
+                                ${response.message}<br>
+                                <strong>Registration ID:</strong> ${response.registrationId}<br>
+                                Check your Microsoft Forms responses to see the submission.
+                            </div>
+                        `;
+                    }
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Submission Failed</strong><br>
+                            ${response.message}<br>
+                            Retry Available: ${response.retryAvailable ? 'Yes' : 'No'}
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                console.error('Test submission error:', error);
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Test Error</strong><br>
+                        ${error.message}<br>
+                        Check browser console for more details.
+                    </div>
+                `;
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🚀 Submit Test Form';
+            }
+        }
+
+        async function testConnectionOnly() {
+            const resultsDiv = document.getElementById('testResults');
+            resultsDiv.innerHTML = '<div class="warning">🔄 Testing Microsoft Forms connection...</div>';
+
+            try {
+                if (!window.msFormsHandler) {
+                    throw new Error('Microsoft Forms handler not initialized');
+                }
+
+                const result = await window.msFormsHandler.checkServiceAvailability();
+
+                if (result.available) {
+                    resultsDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Connection Successful!</strong><br>
+                            ${result.message}<br>
+                            Microsoft Forms is ready to accept submissions.
+                        </div>
+                    `;
+                } else {
+                    resultsDiv.innerHTML = `
+                        <div class="warning">
+                            <strong>⚠️ Connection Issue</strong><br>
+                            ${result.message}<br>
+                            Please check your internet connection.
+                        </div>
+                    `;
+                }
+
+            } catch (error) {
+                resultsDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Connection Test Failed</strong><br>
+                        ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Load configuration when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // The MS Forms handler will automatically load the pre-configured URL
+            console.log('Microsoft Forms handler initialized with URL:', window.msFormsHandler?.formUrl);
+        });
+    </script>
+</body>
+</html>
