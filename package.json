@@ -21,7 +21,6 @@
   "author": "Eco-Pots Initiative",
   "license": "MIT",
   "devDependencies": {
-    "@netlify/plugin-forms": "^0.2.0",
     "@netlify/plugin-sitemap": "^0.12.2",
     "live-server": "^1.2.2",
     "serve": "^14.2.0"
