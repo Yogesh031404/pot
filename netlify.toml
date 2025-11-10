@@ -90,10 +90,7 @@
     buildDir = "dist"
     baseUrl = "https://ecopots.netlify.app"
 
-# Functions directory (if using Netlify Functions)
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
+# Functions directory - not needed for Microsoft Forms integration
 
 # Branch deploy settings
 [context.production]
