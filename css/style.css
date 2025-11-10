@@ -420,7 +420,7 @@ section:nth-child(even) {
 
 .material-examples span {
     font-weight: var(--font-weight-medium);
-    color: var(--primary-green);
+    color: var(--dark-green);
 }
 
 .material-card.selected .material-examples span {
