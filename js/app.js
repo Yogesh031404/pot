@@ -103,12 +103,20 @@ function proceedToRegistration() {
 
 // Registration Page Functions
 function initializeRegistrationPage() {
-    // Load selected material
+    // Load selected material from materials page
     const materialInput = document.getElementById('selectedMaterial');
     if (materialInput) {
         const savedMaterial = localStorage.getItem('selectedMaterial');
         if (savedMaterial) {
-            materialInput.value = materialTypes[savedMaterial] || savedMaterial;
+            // Try to find matching option in the dropdown
+            const materialValue = materialTypes[savedMaterial] || savedMaterial;
+            const options = materialInput.options;
+            for (let i = 0; i < options.length; i++) {
+                if (options[i].value === materialValue) {
+                    materialInput.selectedIndex = i;
+                    break;
+                }
+            }
         }
     }
 
@@ -124,12 +132,12 @@ function initializeRegistrationPage() {
         const inputs = form.querySelectorAll('input, select, textarea');
         inputs.forEach(input => {
             input.addEventListener('input', function() {
-                validateField(this);
+                validateFieldApp(this); // Use app.js validation function
                 saveFormData();
             });
 
             input.addEventListener('blur', function() {
-                validateField(this);
+                validateFieldApp(this);
             });
         });
 
