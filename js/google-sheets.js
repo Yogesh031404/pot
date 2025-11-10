@@ -1,9 +1,9 @@
 // Google Sheets Integration for Eco-Pots Registration
 
-// Configuration - these should be set via environment variables in Netlify
+// Configuration - loads from localStorage or environment variables
 const CONFIG = {
-    GOOGLE_SCRIPT_URL: window.GOOGLE_SCRIPT_URL || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec',
-    SPREADSHEET_ID: window.SPREADSHEET_ID || 'YOUR_SPREADSHEET_ID',
+    GOOGLE_SCRIPT_URL: window.GOOGLE_SCRIPT_URL || localStorage.getItem('ecopots_script_url') || 'https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec',
+    SPREADSHEET_ID: window.SPREADSHEET_ID || localStorage.getItem('ecopots_spreadsheet_id') || 'YOUR_SPREADSHEET_ID',
     SHEET_NAME: 'EcoPots_Student_Registrations',
     MAX_RETRIES: 3,
     TIMEOUT: 30000 // 30 seconds
