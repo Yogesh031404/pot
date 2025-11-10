@@ -290,10 +290,23 @@ async function handleSubmit(event) {
             // Show success and redirect
             showMessage('Registration successful! Redirecting...', 'success');
 
-            // Immediate redirect to thanks page
-            setTimeout(() => {
-                window.location.href = 'thanks.html';
-            }, 1500);
+            // Handle redirect based on response
+            if (response.redirectToMicrosoftForms) {
+                // Redirect to Microsoft Forms with pre-filled data
+                showMessage('Opening Microsoft Forms for final submission...', 'success');
+                setTimeout(() => {
+                    window.open(response.microsoftFormsUrl, '_blank');
+                    // Also redirect to thanks page for completion
+                    setTimeout(() => {
+                        window.location.href = 'thanks.html';
+                    }, 2000);
+                }, 1500);
+            } else {
+                // Redirect to thanks page directly
+                setTimeout(() => {
+                    window.location.href = 'thanks.html';
+                }, 1500);
+            }
         } else {
             throw new Error(response.message || 'Submission failed');
         }
