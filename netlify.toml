@@ -60,8 +60,7 @@
 # Edge functions - not needed for Microsoft Forms integration
 
 # Environment variables (these will be set in Netlify dashboard)
-# GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec"
-# SPREADSHEET_ID = "YOUR_SPREADSHEET_ID"
+# MS_FORMS_URL = "https://forms.office.com/r/f3Vim0S7AC"
 # WHATSAPP_GROUP_LINK = "https://chat.whatsapp.com/YOUR_GROUP_INVITE"
 # CONTACT_EMAIL = "ecopots@yourdomain.com"
 # RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY"
