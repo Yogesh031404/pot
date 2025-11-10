@@ -160,8 +160,8 @@ body {
 
 /* Page header */
 .page-header {
-    background: var(--light-gray);
-    border-bottom: 1px solid var(--medium-gray);
+    background: var(--very-light-green);
+    border-bottom: 1px solid var(--pale-green);
 }
 
 .breadcrumb {
