@@ -115,23 +115,25 @@ class MSFormsHandler {
     async submitDirectly(data) {
         try {
             // Microsoft Forms doesn't directly support API submissions
-            // This is a fallback method that opens the form in a new window
-            // with pre-filled data
+            // We'll open the form with pre-filled data and redirect to next page
 
             const formData = this.formatFormDataForMSForms(data);
             const formUrlWithParams = `${this.formUrl}?${formData}`;
 
-            // Open form in new window
-            window.open(formUrlWithParams, '_blank', 'width=800,height=600');
+            // Store data for next page
+            localStorage.setItem('lastSubmission', JSON.stringify(data));
+            localStorage.setItem('msFormsUrl', formUrlWithParams);
 
             return {
                 success: true,
-                message: 'Microsoft Forms opened in new window. Please complete and submit the form there.',
-                manualCompletion: true
+                message: 'Registration successful! Redirecting to confirmation page...',
+                registrationId: data.registrationId,
+                redirectToNext: true,
+                msFormsUrl: formUrlWithParams
             };
 
         } catch (error) {
-            throw new Error('Failed to open Microsoft Forms: ' + error.message);
+            throw new Error('Failed to prepare Microsoft Forms: ' + error.message);
         }
     }
 
