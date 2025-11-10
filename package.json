@@ -1,0 +1,43 @@
+{
+  "name": "eco-pots-registration",
+  "version": "1.0.0",
+  "description": "Eco-Pots Student Registration Web App - Transform waste into green classrooms",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=8000",
+    "build": "echo 'No build required for static site'",
+    "deploy": "netlify deploy --prod"
+  },
+  "keywords": [
+    "eco-pots",
+    "sustainability",
+    "environmental",
+    "student-registration",
+    "waste-recycling",
+    "green-initiative"
+  ],
+  "author": "Eco-Pots Initiative",
+  "license": "MIT",
+  "devDependencies": {
+    "@netlify/plugin-forms": "^0.2.0",
+    "@netlify/plugin-sitemap": "^0.12.2",
+    "live-server": "^1.2.2",
+    "serve": "^14.2.0"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/ecopots.git"
+  },
+  "homepage": "https://your-domain.com",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
