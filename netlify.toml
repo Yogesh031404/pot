@@ -84,12 +84,10 @@
   DEBUG = "true"
 
 # Plugin configurations
-[[plugins]]
-  # Netlify plugin for form handling (optional)
-  package = "@netlify/plugin-forms"
+# No plugins required - we use Microsoft Forms for form handling
 
 [[plugins]]
-  # Netlify plugin for sitemap generation
+  # Optional: Netlify plugin for sitemap generation
   package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
